@@ -88,7 +88,8 @@ namespace OrderCreator.Sagas
                     context.Instance.Customer = context.Data.Customer;
                     context.Instance.Sender = context.Data.Sender;
                 })
-                .Finalize());
+                .TransitionTo(Completed)
+                );
         }
     }
 }
