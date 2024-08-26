@@ -18,6 +18,11 @@
                 <span asp-validation-for="OrderName" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="CurrentState" class="control-label"></label>
+                <input asp-for="CurrentState" class="form-control" value="Submitted" readonly/>
+                <span asp-validation-for="CurrentState" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="OrderDescription" class="control-label"></label>
                 <input asp-for="OrderDescription" class="form-control" />
                 <span asp-validation-for="OrderDescription" class="text-danger"></span>

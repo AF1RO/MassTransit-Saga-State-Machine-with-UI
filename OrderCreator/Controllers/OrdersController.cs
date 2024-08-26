@@ -63,7 +63,6 @@ namespace OrderCreator.Controllers
             if (ModelState.IsValid)
             {
                 orderState.CorrelationId = Guid.NewGuid();
-                orderState.CurrentState = "Submitted";
                 var SubmitOrder = new OrderSubmitted
                 {
                     OrderId = Guid.NewGuid(),
