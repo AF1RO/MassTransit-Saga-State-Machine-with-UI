@@ -19,9 +19,41 @@ namespace OrderCreator.Controllers
         }
 
         // GET: Orders
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString, string searchCategory)
         {
-            return View(await _context.OrderState.ToListAsync());
+            var orders = from o in _context.OrderState
+                         select o;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                switch (searchCategory)
+                {
+                    case "Id":
+                        orders = orders.Where(s => s.Id.ToString().Contains(searchString));
+                        break;
+                    case "CorrelationId":
+                        orders = orders.Where(s => s.CorrelationId.ToString().Contains(searchString));
+                        break;
+                    case "CurrentState":
+                        orders = orders.Where(s => s.CurrentState.Contains(searchString));
+                        break;
+                    case "OrderName":
+                        orders = orders.Where(s => s.OrderName.Contains(searchString));
+                        break;
+                    case "OrderDescription":
+                        orders = orders.Where(s => s.OrderDescription.Contains(searchString));
+                        break;
+                    case "Customer":
+                        orders = orders.Where(s => s.Customer.Contains(searchString));
+                        break;
+                    case "Sender":
+                        orders = orders.Where(s => s.Sender.Contains(searchString));
+                        break;
+                    default:
+                        break;
+                }
+            }
+            return View(await orders.ToListAsync());
         }
 
         // GET: Orders/Details/5
