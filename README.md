@@ -2,7 +2,7 @@
 <hr />
 <p>
   Project made in Visual Studio 2022 and showcases the simplest/easiest way to make a MassTransit Saga State Machine
-  using RabbitMQ with Razor Pages/Views. 
+  using RabbitMQ with Razor Pages/Views and a basic CRUD. 
 </p>
 
 > <p>Make sure to type "update-database" in the Package Manager Console to get the database.<br>You can check the Data via "View -> SQL Server Object Explorer" in VS22</p>
